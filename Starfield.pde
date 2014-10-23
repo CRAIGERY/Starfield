@@ -8,6 +8,7 @@ void setup()
 	{
 		starz [i] = new NormalParticle();
 		starz[starz.length-1] = new oddballParticle();
+		starz[10] = new jumbo();
 	}
 	
 }
@@ -60,12 +61,24 @@ class oddballParticle implements Particle
 	public void show()
 	{
 		fill(255);
-		ellipse((float)locX,(float)locY, 40, 40);
+		ellipse((float)locX,(float)locY, 25, 25);
 	}
 	public void move()
 	{
 		locY = locY + 2;
 	}
 }
-
+class jumbo extends NormalParticle
+{
+	int jumboSize;
+	jumbo()
+	{
+		jumboSize = 50;
+	}
+	public void show()
+	{
+		ellipse(jumboSize,jumboSize,50,50);
+		jumboSize++;
+	}
+}
 
